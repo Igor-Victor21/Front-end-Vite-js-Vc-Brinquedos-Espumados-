@@ -1,4 +1,4 @@
-import './App.module.css'
+import style from './App.module.css'
 
 export default function App() {
 
@@ -24,16 +24,16 @@ export default function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      <section>
+      <section className={style.card}>
         <button>
-          <image/>
+          <img/>
         </button>
         <h1>Bom dia Michely!</h1>
         <p>Tenha momentos divertidos e únicos com seus filhos com a VC brinquedos Espumados</p>
         <input placeholder='Procurar'></input>
       </section>
 
-      <h3>Nova Coleção</h3>
+      <h4>Nova Coleção</h4>
 
       <section>
         <button></button>
