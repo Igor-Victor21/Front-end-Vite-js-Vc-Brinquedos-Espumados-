@@ -22,6 +22,7 @@ function App(){
         className={style.UserImage}
         src={UserImage}
         alt="User"
+        onClick={() => navigate('/Login')}
       />
     </button>
 

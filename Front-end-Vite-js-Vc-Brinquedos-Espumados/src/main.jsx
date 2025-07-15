@@ -7,6 +7,8 @@ import App from './App.jsx'
 import Login from './Login.jsx'
 import UserAdmin from './UserAdmin.jsx'
 import User from './User.jsx'
+import CreateUsers from './CreateUsers.jsx'
+import CreateProducts from './CreateProducts.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +18,10 @@ createRoot(document.getElementById('root')).render(
         <Route path='/Login' element={<Login/>}/>
         <Route path='/UserAdmin' element={<UserAdmin/>}/>
         <Route path='/User' element={<User/>}/>
+        <Route path='/CreateUsers' element={<CreateUsers/>}/>
+        <Route path='/CreateProducts' element={<CreateProducts/>}/>
+
+
 
 
       </Routes>

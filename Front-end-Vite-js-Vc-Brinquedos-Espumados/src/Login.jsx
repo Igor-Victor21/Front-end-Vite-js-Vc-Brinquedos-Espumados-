@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../api/api'
-import './Login.module.css'
+import style from './Login.module.css'
 
 function Login() {
   const navigate = useNavigate()
@@ -15,7 +15,11 @@ function Login() {
     const storedUser = localStorage.getItem('user')
     if (storedUser) {
       setUser(JSON.parse(storedUser))
-      navigate('/')
+      if(setUser === 'igor.victorcontato@gmail.com'){
+        navigate('/UserAdmin')
+      }else{
+        navigate('/User')
+      }
     }
   }, [navigate])
 

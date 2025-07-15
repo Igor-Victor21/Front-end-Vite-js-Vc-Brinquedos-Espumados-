@@ -1,0 +1,36 @@
+#menuBar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid var(--preto);
+    background-color: var(--azul-bebe);
+    width: 10%;
+}
+
+.buttonMenu {
+    width: 120px;
+    border: 2px solid var(--preto);
+    border-radius: 999px;
+    color: var(--preto);
+    background-color: var(--branco);
+    text-align: center;
+    margin: 15px;
+    padding: 10px;
+}
+
+.buttonMenu :hover {
+    cursor: pointer;
+}
+
+#infoUsers {
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+}
+
+#infoProducts {
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+}
