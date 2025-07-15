@@ -1,49 +1,72 @@
 import style from './App.module.css'
 import { useNavigate } from 'react-router-dom'
 
+import UserImage from './assets/image/user-test-sem-figma.png'
+
 function App(){
   const navigate = useNavigate()
   return (
     <>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+  {/* <InfoModal visible={isModalVisible} onClose={() => setModalVisible(false)} /> */}
+  {/* <InfoCell /> */}
+
+  {/* {showToast && (
+    <div className={style.toastConteiner}>
+      <p className={style.toastMessage}>{messageToast}</p>
+    </div>
+  )} */}
+
+  <section className={style.Card}>
+    <button className={style.UserImagePosition}>
+      <img
+        className={style.UserImage}
+        src={UserImage}
+        alt="User"
+      />
+    </button>
+
+    <p className={style.MessageIntro}>Bom dia!</p>
+    <p className={style.Slogan}>
+      Tenha momentos divertidos e únicos com seus filhos com a VC brinquedos Espumados
+    </p>
+    <input className={style.SearchBar} type="text" placeholder="Procurar" />
+  </section>
+
+  <p className={style.Text}>Nova Coleção</p>
+
+  <section className={style.Bar}>
+    <button className={style.BarItem} onClick={() => setBarContent(1)}>
+      <p className={style.textBtn}>Todos</p>
+    </button>
+    <button className={style.BarItem} onClick={() => setBarContent(2)}>
+      <span className={style.textBtn}>Kits</span>
+    </button>
+    <button className={style.BarItem} onClick={() => setBarContent(3)}>
+      <span className={style.textBtn}>Promoções</span>
+    </button>
+  </section>
+
+  <div className={style.conteinerCards}>
+    <div className={style.wrapCards}>
+      {/* {produtosFiltrados.map((item) => (
+        <button
+          key={item.id}
+          style={{ marginRight: 16 }}
+          onClick={() => handleProduct(item)}
+        >
+          <Card
+            name={item.name}
+            description={item.description}
+            image={item.image}
+            price={item.price}
+            id={item.id}
+            toast={(jaExiste) => showCustomToast(jaExiste)}
+          />
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-      <section className={style.card}>
-        <button onClick={() => navigate('/Login')}>Sing-in</button>
-        <h1>Bom dia Michely!</h1>
-        <p>Tenha momentos divertidos e únicos com seus filhos com a VC brinquedos Espumados</p>
-        <input placeholder='Procurar'></input>
-      </section>
-
-      <h4>Nova Coleção</h4>
-
-      <section>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-      </section>
-
-      <section>
-        {/* cards */}
-      </section>
+      ))} */}
+    </div>
+  </div>
+  {/* <Nav /> */}
     </>
   )
 

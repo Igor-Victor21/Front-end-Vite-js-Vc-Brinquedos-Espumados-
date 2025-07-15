@@ -1,0 +1,38 @@
+.containerImg{
+    flex: 1;
+}
+
+.img{
+    width: 100%;
+    height: 354;
+    top: 25%;
+    left: -3;
+}
+
+.container{
+    align-items: center;
+}
+
+.h1{
+    font-size: 77px;
+    font-weight: 900;
+    color: #252525;
+}
+
+.h3{
+    font-size: 32px;
+    font-weight: 500;
+    /* padding: 15; */
+}
+
+.p{
+    text-align: center;
+    font-size: 15px;
+    max-width: 80%;
+}
+
+.gif{
+    width: 116px;
+    height: 85px;
+    bottom: -12%;
+}
