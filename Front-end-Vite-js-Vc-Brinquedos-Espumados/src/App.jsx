@@ -1,7 +1,8 @@
 import style from './App.module.css'
+import { useNavigate } from 'react-router-dom'
 
-export default function App() {
-
+function App(){
+  const navigate = useNavigate()
   return (
     <>
       {/* <div>
@@ -25,9 +26,7 @@ export default function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       <section className={style.card}>
-        <button>
-          <img/>
-        </button>
+        <button onClick={() => navigate('/Login')}>Sing-in</button>
         <h1>Bom dia Michely!</h1>
         <p>Tenha momentos divertidos e únicos com seus filhos com a VC brinquedos Espumados</p>
         <input placeholder='Procurar'></input>
@@ -47,4 +46,7 @@ export default function App() {
       </section>
     </>
   )
+
 }
+
+export default App
