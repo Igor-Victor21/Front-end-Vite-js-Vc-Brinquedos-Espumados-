@@ -14,8 +14,9 @@ function Login() {
   useEffect(() => {
     const storedUser = localStorage.getItem('user')
     if (storedUser) {
-      setUser(JSON.parse(storedUser))
-      if(setUser === 'igor.victorcontato@gmail.com'){
+      const parsedUser = JSON.parse(storedUser)
+      setUser(parsedUser)
+      if(parsedUser.email === 'igor.victorcontato@gmail.com'){
         navigate('/UserAdmin')
       }else{
         navigate('/User')

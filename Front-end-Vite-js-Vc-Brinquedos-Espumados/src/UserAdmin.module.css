@@ -23,14 +23,21 @@
     cursor: pointer;
 }
 
-#infoUsers {
-    width: 100%;
+#s1 {
+    width: 100vw;
     height: auto;
-    border: 2px solid black;
+    border: 2px solid var(--preto);
+    
+}
+#s1 h1{
+    color: var(--preto);
 }
 
-#infoProducts {
+#s2 {
     width: 100%;
     height: auto;
-    border: 2px solid black;
+}
+
+#s2 h1{
+    color: var(--preto);
 }
