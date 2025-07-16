@@ -1,76 +1,33 @@
 import style from './App.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
-import UserImage from './assets/image/user-test-sem-figma.png'
+import Image from './assets/image/user-test-sem-figma.png'
 
 function App(){
   const navigate = useNavigate()
   return (
     <>
-  {/* <InfoModal visible={isModalVisible} onClose={() => setModalVisible(false)} /> */}
-  {/* <InfoCell /> */}
-
-  {/* {showToast && (
-    <div className={style.toastConteiner}>
-      <p className={style.toastMessage}>{messageToast}</p>
-    </div>
-  )} */}
-
-  <section className={style.Card}>
-    <button className={style.UserImagePosition}>
-      <img
-        className={style.UserImage}
-        src={UserImage}
-        alt="User"
-        onClick={() => navigate('/Login')}
-      />
-    </button>
-
-    <p className={style.MessageIntro}>Bom dia!</p>
-    <p className={style.Slogan}>
-      Tenha momentos divertidos e únicos com seus filhos com a VC brinquedos Espumados
-    </p>
-    <input className={style.SearchBar} type="text" placeholder="Procurar" />
-  </section>
-
-  <p className={style.Text}>Nova Coleção</p>
-
-  <section className={style.Bar}>
-    <button className={style.BarItem} onClick={() => setBarContent(1)}>
-      <p className={style.textBtn}>Todos</p>
-    </button>
-    <button className={style.BarItem} onClick={() => setBarContent(2)}>
-      <span className={style.textBtn}>Kits</span>
-    </button>
-    <button className={style.BarItem} onClick={() => setBarContent(3)}>
-      <span className={style.textBtn}>Promoções</span>
-    </button>
-  </section>
-
-  <div className={style.conteinerCards}>
-    <div className={style.wrapCards}>
-      {/* {produtosFiltrados.map((item) => (
-        <button
-          key={item.id}
-          style={{ marginRight: 16 }}
-          onClick={() => handleProduct(item)}
-        >
-          <Card
-            name={item.name}
-            description={item.description}
-            image={item.image}
-            price={item.price}
-            id={item.id}
-            toast={(jaExiste) => showCustomToast(jaExiste)}
-          />
-        </button>
-      ))} */}
-    </div>
-  </div>
-  {/* <Nav /> */}
+      <section className={style.container}>
+        <div className={style.wrapLogin}>
+          <div className={style.login}> 
+            <h1>Bem vindo(a) de volta!!</h1>
+            <p>Digite suas credenciais para acessar sua conta</p>
+            <input type="text" placeholder='Digite seu email'/>
+            <input type="password" placeholder='Digite sua senha'/>
+            <button onClick={() => navigate("/Login")}>Entrar</button>
+            <p>Ou</p>
+            <p>Não tem uma conta? <Link to="/Login" className={style.link}>Cadastrar-se</Link></p>
+          </div>
+        </div>
+        <div className={style.wrapImage}>
+          <img 
+          className={style.img}
+          src={Image}
+          alt='teste'/>
+        </div>
+      </section>
     </>
   )
-
 }
 
 export default App
