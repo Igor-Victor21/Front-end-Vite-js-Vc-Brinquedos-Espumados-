@@ -1,0 +1,95 @@
+body {
+    background-color: #F1F5F9;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Esconde o menu */
+.hiddenMenu {
+    display: none;
+}
+
+.wrapHeader {
+    background-color: blue;
+    border-radius: 15px;
+    margin: 15px;
+    z-index: 10;
+}
+
+.wrapHeader {}
+
+.wrapBoxProduct {}
+
+.backBtn {}
+
+.trashBtn {
+    border: 1px solid #FF0000;
+    border-radius: 1px;
+    width: 16px;
+    height: 18px;
+}
+
+/* #FF0000 cor do lixo */
+.wrapCreateProducts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 15px;
+    width: 400px;
+    background-color: var(--branco);
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.wrapCreateProducts h1 {
+    color: var(--preto);
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.wrapCreateProducts p {
+    color: #636262;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.formProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    font-size: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.formProducts input {
+    border: 2px solid #636262;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.formProducts button {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #636262;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { api } from '../api/api'
 import style from './CreateUsers.module.css'
-// import { Nav } from './components/Nav'
+import { Menu } from './components/menu'
 
 function CreateUsers() {
     const navigate = useNavigate()
@@ -45,7 +45,7 @@ function CreateUsers() {
     }
     return (
         <section>
-            {/* <Menu/> */}
+            <Menu/>
             <div>
                 <h1>Criar novo usuário</h1>
                 <form onSubmit={handleSubmit} className={style.formSubmit}>

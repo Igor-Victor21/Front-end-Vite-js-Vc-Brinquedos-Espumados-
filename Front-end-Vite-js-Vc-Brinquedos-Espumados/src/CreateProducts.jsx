@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { api } from '../api/api'
-// import { Nav } from "./components/navBar"
+import { Menu } from './components/menu'
+import SetaVoltar from './assets/image/seta.png'
+import Trash from './assets/image/Trash.png'
 import style from './CreateProducts.module.css'
 
 function CreateProducts() {
   const navigate = useNavigate()
+
+  const [showForm, setShowForm] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(true) 
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -16,22 +21,16 @@ function CreateProducts() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
-  useEffect(() => {
-    const checkAdmin = () => {
-      const storedUser = localStorage.getItem('user');
-      if (!storedUser) {
-        navigate('/Login');
-        return;
-      }
-      const user = JSON.parse(storedUser);
-      if (user.email !== 'igor.victorcontato@gmail.com') {
-        navigate('/User');
-      } else {
-        fetchUsers();
-      }
-    };
-    checkAdmin();
-  }, [navigate]);
+  const handlePublishClick = () => {
+    setShowForm(true) 
+    setMenuVisible(false) 
+  }
+
+  const handleCancelPublish = () => {
+    setShowForm(false)
+    setMenuVisible(true)
+    setProduct({ name: '', description: '', measures: '', price: '', image: '' }); 
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -55,19 +54,68 @@ function CreateProducts() {
 
   return (
     <section>
-      <div style={{ padding: '2rem' }}>
-        <h1>Criar novo produto</h1>
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px' }}>
-          <input type="text" name="name" placeholder="Nome Produto" value={product.name} onChange={handleChange} required />
-          <input type="text" name="description" placeholder="Descrição" value={product.description} onChange={handleChange} required />
-          <input type="text" name="measures" placeholder="Medidas" value={product.measures} onChange={handleChange} required />
-          <input type="number" name="price" placeholder="Preço" value={product.price} onChange={handleChange} required />
-          <input type="text" name="image" placeholder="URL da imagem" value={product.image} onChange={handleChange} required />
-          <button type="submit">Criar Produto</button>
-        </form>
+      <div>
+        {/* Menu é ocultado se menuVisible for falso */}
+        <div className={`${menuVisible ? '' : style.hiddenMenu}`}>
+          <Menu />
+        </div>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+        {/* Header sempre visível */}
+        <header>
+          <div className={style.wrapHeader}>
+            <div className={style.wrapBoxProduct}>
+              <img className={style.backBtn} src={SetaVoltar} alt="Voltar" onClick={() => navigate(-1)} />
+            </div>
+            <div>
+              <h1>Adicione Um Novo Produto</h1>
+            </div>
+            {/* widht e height é 10 num a menos */}
+            <div className={style.wrapTrash}>
+              <img style={{ with: '26px', height: '28px', border: '1px solid #FF0000', padding: '5px', borderRadius: '3px' }} src={Trash} alt="Lixo" />
+            </div>
+            <div className={style.wrapButton}>
+              <button>Salvar Rascunho</button>
+              <button onClick={showForm ? handleCancelPublish : handlePublishClick}>
+                {showForm ? 'Cancelar Publicação' : 'Publicar'}
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* O Formulário é mostrado quando showForm for true */}
+        {showForm && (
+          <div className={style.wrapCreateProducts}>
+            <h1>Detalhes do Produto</h1>
+            <p>Informações importantes para descrever e exibir seu produto.</p>
+
+            <form onSubmit={handleSubmit} className={style.formProducts}>
+              <div className={style.row}>
+                <div className={style.inputGroup}>
+                  <h2>Nome do Produto:</h2>
+                  <input type="text" name="name" placeholder="Nome Produto" value={product.name} onChange={handleChange} required />
+                </div>
+                <div className={style.inputGroup}>
+                  <h2>Preço:</h2>
+                  <input type="number" name="price" placeholder="Preço" value={product.price} onChange={handleChange} required />
+                </div>
+              </div>
+
+              <h2>Url do Produto:</h2>
+              <input type="text" name="image" placeholder="URL da imagem" value={product.image} onChange={handleChange} required />
+
+              <h2>Descrição:</h2>
+              <input type="text" name="description" placeholder="Descrição" value={product.description} onChange={handleChange} required style={{ height: '100px' }} />
+
+              <h2>Medidas:</h2>
+              <input type="text" name="measures" placeholder="Medidas" value={product.measures} onChange={handleChange} required />
+
+              <button type="submit">Criar Produto</button>
+            </form>
+
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{ color: 'green' }}>{success}</p>}
+          </div>
+        )}
       </div>
     </section>
   )

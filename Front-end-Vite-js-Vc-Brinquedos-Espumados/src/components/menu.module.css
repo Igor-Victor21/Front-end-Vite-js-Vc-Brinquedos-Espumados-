@@ -1,0 +1,35 @@
+
+.navBar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    width: 100.23px;
+    height: 932px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media (widht > 1000px) {
+    .navBar {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+        flex-direction: column;
+        width: 149.23px;
+        height: 960px;
+        top: 34px;
+        left: 29px;
+        margin: 50px;
+        background-color: rebeccapurple;
+    }
+
+    .icon {
+        margin: 15px;
+        width: 37px;
+        height: 34px;
+    }
+}
