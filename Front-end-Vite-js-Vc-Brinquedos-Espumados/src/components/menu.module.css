@@ -1,15 +1,22 @@
-
 .navBar {
-    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-top: 150px;
-    width: 100.23px;
-    height: 932px;
+    flex-direction: row;
+    margin: 10px;
+    width: 96%;
+    height: 100px;
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrapIcons {
+    display: flex;
 }
 
 @media (widht > 1000px) {
@@ -17,19 +24,25 @@
         position: absolute;
         display: flex;
         align-items: center;
-        /* justify-content: center; */
         flex-direction: column;
         width: 149.23px;
         height: 960px;
         top: 34px;
         left: 29px;
         margin: 50px;
-        background-color: rebeccapurple;
     }
 
     .icon {
         margin: 15px;
         width: 37px;
         height: 34px;
+    }
+
+    .wrapIcons {
+        margin-Top: 280px;
+        display: 'flex';
+        align-items: 'center';
+        flex-direction: 'column'
+
     }
 }

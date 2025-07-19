@@ -26,14 +26,14 @@ export const Menu = () => {
 
     return (
         <nav className={style.navBar}>
-            <img style={{ width: '80px', height: '80px', marginBottom: '50px', cursor: 'pointer' }} onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" src={MenuLogo} alt="Logo" />
-            <img style={{ width: '27px', height: '27px',margin: '15px' }} src={Home} alt="Home" onClick={goToHome} />
-            <img style={{ width: '34px', height: '28px',margin: '15px' }} src={InfoIcon} alt="Person" onClick={goToInfoUsers} />
-            <img style={{ width: '26px', height: '24px',margin: '15px' }} src={CreateUsersIcon} alt="Person" onClick={goToCreateUsers} />
-            <img style={{ width: '37px', height: '34px',margin: '15px' }} src={CreateProductsIcon} alt="Person" onClick={goToCreateProducts} />
+            <img style={{ width: '80px', height: '80px', cursor: 'pointer' }} onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" onClick={() => navigate('/UserAdmin')}src={MenuLogo} alt="Logo" />
+            <img style={{ width: '27px', height: '27px',margin: '10px' }} src={Home} alt="Home" onClick={goToHome} />
+            <img style={{ width: '34px', height: '29px',margin: '10px',}} src={InfoIcon} alt="Person" onClick={goToInfoUsers} />
+            <img style={{ width: '26px', height: '24px',margin: '10px' }} src={CreateUsersIcon} alt="Person" onClick={goToCreateUsers} />
+            <img style={{ width: '37px', height: '34px',margin: '10px' }} src={CreateProductsIcon} alt="Person" onClick={goToCreateProducts} />
 
-            <div style={{ marginTop: '280px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                <img style={{ width: '29px', height: '29px' }} src={Logout} alt="Person" onClick={logout} />
+            <div className={style.wrapIcons}>
+                <img style={{ width: '29px', height: '29px', margin: '5px', marginTop: '35px' }} src={Logout} alt="Person" onClick={logout} />
                 <img style={{ margin: '30px', width: '38px', height: '39px', border: '2px solid black', borderRadius: '100%' }} src={User} alt="User" />
             </div>
         </nav>

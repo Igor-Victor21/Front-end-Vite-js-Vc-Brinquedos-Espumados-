@@ -3,32 +3,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Esconde o menu */
-.hiddenMenu {
-    display: none;
-}
-
-.wrapHeader {
-    background-color: blue;
-    border-radius: 15px;
-    margin: 15px;
-    z-index: 10;
-}
-
-.wrapHeader {}
-
-.wrapBoxProduct {}
-
-.backBtn {}
-
-.trashBtn {
-    border: 1px solid #FF0000;
-    border-radius: 1px;
-    width: 16px;
-    height: 18px;
-}
-
-/* #FF0000 cor do lixo */
 .wrapCreateProducts {
     display: flex;
     flex-direction: column;
@@ -53,6 +27,16 @@ body {
     color: #636262;
     margin-bottom: 10px;
     opacity: 0.8;
+}
+
+.wrapPageBack{
+    margin-right: 320px;
+}
+.backBtn {
+    padding: 2px;
+    width: 31px;
+    border: solid 2px gray;
+    border-radius: 10px;
 }
 
 .formProducts {
@@ -82,7 +66,6 @@ body {
     width: 100%;
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
 }
 
 .formProducts button {

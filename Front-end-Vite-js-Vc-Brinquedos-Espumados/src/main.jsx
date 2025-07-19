@@ -20,10 +20,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='/User' element={<User/>}/>
         <Route path='/CreateUsers' element={<CreateUsers/>}/>
         <Route path='/CreateProducts' element={<CreateProducts/>}/>
-
-
-
-
       </Routes>
     </BrowserRouter>
   </StrictMode>,

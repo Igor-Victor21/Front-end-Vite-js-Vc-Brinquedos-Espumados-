@@ -2,15 +2,16 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { api } from '../api/api'
 import { Menu } from './components/menu'
-import SetaVoltar from './assets/image/seta.png'
-import Trash from './assets/image/Trash.png'
 import style from './CreateProducts.module.css'
+
+import SetaVoltar from './assets/image/seta.png'
+
 
 function CreateProducts() {
   const navigate = useNavigate()
 
   const [showForm, setShowForm] = useState(false)
-  const [menuVisible, setMenuVisible] = useState(true) 
+  const [menuVisible, setMenuVisible] = useState(true)
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -20,17 +21,6 @@ function CreateProducts() {
   })
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
-
-  const handlePublishClick = () => {
-    setShowForm(true) 
-    setMenuVisible(false) 
-  }
-
-  const handleCancelPublish = () => {
-    setShowForm(false)
-    setMenuVisible(true)
-    setProduct({ name: '', description: '', measures: '', price: '', image: '' }); 
-  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -54,70 +44,45 @@ function CreateProducts() {
 
   return (
     <section>
-      <div>
-        {/* Menu é ocultado se menuVisible for falso */}
-        <div className={`${menuVisible ? '' : style.hiddenMenu}`}>
-          <Menu />
+      <div className={style.wrapCreateProducts}>
+        <div className={style.wrapPageBack}>
+          <img className={style.backBtn} src={SetaVoltar} alt="Voltar" onClick={() => navigate(-1)} />
         </div>
+        <h1>Detalhes do Produto</h1>
+        <p>Informações importantes para descrever e exibir seu produto.</p>
 
-        {/* Header sempre visível */}
-        <header>
-          <div className={style.wrapHeader}>
-            <div className={style.wrapBoxProduct}>
-              <img className={style.backBtn} src={SetaVoltar} alt="Voltar" onClick={() => navigate(-1)} />
+        <form onSubmit={handleSubmit} className={style.formProducts}>
+          <div className={style.row}>
+            <div className={style.inputGroup}>
+              <h2>Nome do Produto:</h2>
+              <input type="text" name="name" placeholder="Nome Produto" value={product.name} onChange={handleChange} required />
             </div>
-            <div>
-              <h1>Adicione Um Novo Produto</h1>
-            </div>
-            {/* widht e height é 10 num a menos */}
-            <div className={style.wrapTrash}>
-              <img style={{ with: '26px', height: '28px', border: '1px solid #FF0000', padding: '5px', borderRadius: '3px' }} src={Trash} alt="Lixo" />
-            </div>
-            <div className={style.wrapButton}>
-              <button>Salvar Rascunho</button>
-              <button onClick={showForm ? handleCancelPublish : handlePublishClick}>
-                {showForm ? 'Cancelar Publicação' : 'Publicar'}
-              </button>
+            <div className={style.inputGroup}>
+              <h2>Preço:</h2>
+              <input type="number" name="price" placeholder="Preço" value={product.price} onChange={handleChange} required />
             </div>
           </div>
-        </header>
 
-        {/* O Formulário é mostrado quando showForm for true */}
-        {showForm && (
-          <div className={style.wrapCreateProducts}>
-            <h1>Detalhes do Produto</h1>
-            <p>Informações importantes para descrever e exibir seu produto.</p>
+          <h2>Url do Produto:</h2>
+          <input type="text" name="image" placeholder="URL da imagem" value={product.image} onChange={handleChange} required />
 
-            <form onSubmit={handleSubmit} className={style.formProducts}>
-              <div className={style.row}>
-                <div className={style.inputGroup}>
-                  <h2>Nome do Produto:</h2>
-                  <input type="text" name="name" placeholder="Nome Produto" value={product.name} onChange={handleChange} required />
-                </div>
-                <div className={style.inputGroup}>
-                  <h2>Preço:</h2>
-                  <input type="number" name="price" placeholder="Preço" value={product.price} onChange={handleChange} required />
-                </div>
-              </div>
+          <h2>Descrição:</h2>
+          <input type="text" name="description" placeholder="Descrição" value={product.description} onChange={handleChange} required style={{ height: '100px' }} />
 
-              <h2>Url do Produto:</h2>
-              <input type="text" name="image" placeholder="URL da imagem" value={product.image} onChange={handleChange} required />
+          <h2>Medidas:</h2>
+          <input type="text" name="measures" placeholder="Medidas" value={product.measures} onChange={handleChange} required />
 
-              <h2>Descrição:</h2>
-              <input type="text" name="description" placeholder="Descrição" value={product.description} onChange={handleChange} required style={{ height: '100px' }} />
+          <button type="submit">Criar Produto</button>
+        </form>
 
-              <h2>Medidas:</h2>
-              <input type="text" name="measures" placeholder="Medidas" value={product.measures} onChange={handleChange} required />
-
-              <button type="submit">Criar Produto</button>
-            </form>
-
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>{success}</p>}
-          </div>
-        )}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {success && <p style={{ color: 'green' }}>{success}</p>}
       </div>
-    </section>
+      {/* <div>
+        {/* Menu é ocultado se menuVisible for falso */}
+      <div className={`${menuVisible ? '' : style.hiddenMenu}`}>
+      </div>
+    </section >
   )
 }
 
