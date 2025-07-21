@@ -1,10 +1,118 @@
-.wrapCreateUser{
+body {
+    background-color: #F1F5F9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapPhotoUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.photoUser {
+    width: 77px;
+    height: 77px;
+    border: 2px solid var(--preto);
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrapInputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+
+.inputTitle {
+    font-size: 16px;
+}
+
+.wrapCreateUser {
     padding: 2rem;
 }
 
-.formSubmit{
+.wrapForm {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+}
+
+.formSubmit {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
+    width: 200px;
     max-width: 400px;
+}
+
+.title {
+    background: #4B6799;
+    background: linear-gradient(90deg, rgba(75, 103, 153, 1) 0%, rgba(75, 103, 153, 1) 48%, rgba(125, 172, 255, 1) 100%);
+    margin-top: 10px;
+    border-radius: 30px;
+    color: var(--branco);
+    font-size: 20px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.inputUser {
+    border: 2px solid #636262;
+    padding: 10px;
+    border-radius: 20px;
+    width: 200px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrapContact {
+    flex-direction: row;
+}
+
+.contactAdd {
+    position: absolute;
+}
+
+.btnSubmit {
+    background: #4168B1;
+    background: linear-gradient(0deg, rgba(65, 104, 177, 1) 0%, rgba(125, 172, 255, 1) 100%);
+    color: var(--branco);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.btnAdd {
+    position: absolute;
+    border-radius: 10px;
+    border: none;
+    right: -40px;
+    top: 05px;
+    width: 30px;
+    height: 30px;
+    background: #4168B1;
+    background: linear-gradient(0deg, rgba(65, 104, 177, 1) 0%, rgba(125, 172, 255, 1) 100%);
+    color: var(--branco);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.btnCancel{
+    width: 98px;
+    height: 35px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--branco);
+    border: none;
+    margin: 5px;
 }
