@@ -107,6 +107,14 @@ body {
 
 }
 
+.wrapBtnCreate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+}
+
 .btnCancel{
     width: 98px;
     height: 35px;

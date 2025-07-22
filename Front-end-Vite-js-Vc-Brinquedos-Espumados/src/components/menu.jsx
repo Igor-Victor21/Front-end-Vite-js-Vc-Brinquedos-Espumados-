@@ -8,11 +8,13 @@ import User from '../assets/image/user-test-sem-figma.png'
 import Logout from '../assets/image/logout.png'
 
 import style from './menu.module.css'
+import { useState } from "react";
 
 export const Menu = () => {
     const navigate = useNavigate()
+    
 
-    const goToInfoUsers = () => navigate(`/User`)
+    const goToInfoUsers = () => navigate(`/UsersList`)
     const goToCreateUsers = () => navigate(`/CreateUsers`)
     const goToCreateProducts = () => navigate(`/CreateProducts`)
     const goToHome = () => navigate(`/`)

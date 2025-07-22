@@ -50,6 +50,15 @@ function CreateUsers() {
             console.log(err)
         }
     }
+
+    const handleCancel = () => {
+        setUser(null);
+    };
+
+    const handleEmProducao = () => {
+        alert("Em Produção")
+    }
+
     return (
         <section>
             <Menu />
@@ -61,11 +70,11 @@ function CreateUsers() {
 
                 <div className={style.wrapInputs}>
                     <p className={style.inputTitle}>Categoria:</p>
-                    <input className={style.inputUser} type="text" />
+                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                     <p className={style.inputTitle}>Atribuir Função:</p>
-                    <input className={style.inputUser} type="text" />
+                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                     <p className={style.inputTitle}>Status:</p>
-                    <input className={style.inputUser} type="text" />
+                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                 </div>
             </section>
             <div className={style.wrapForm}>
@@ -101,21 +110,23 @@ function CreateUsers() {
                     <input className={style.inputUser} type="text" name='numberPhone' value={user.numberPhone} onChange={handleChange} required />
                     <p className={style.inputTitle}>E-mail: </p>
                     <div style={{ position: "relative" }}>
-                        <input className={style.inputUser} type="text" placeholder='Insira um E-mail de Contato' />
-                        <button className={style.btnAdd}>+</button>
+                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        <button className={style.btnAdd} onClick={handleEmProducao}>+</button>
                     </div>
                     <p className={style.inputTitle}>Rede Social: </p>
                     <div style={{ position: "relative" }}>
-                        <input className={style.inputUser} type="text" placeholder='Rede Social (Opcional)' />
-                        <button className={style.btnAdd}>+</button>
+                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        <button className={style.btnAdd} onClick={handleEmProducao}>+</button>
                     </div>
                     <p className={style.inputTitle}>Função: </p>
-                    <input className={style.inputUser} type="text" />
+                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                     <p className={style.inputTitle}>Experiência: </p>
-                    <input className={style.inputUser} type="text" />
-                    <button className={style.btnSubmit} type="submit">Criar Usuário</button>
-                    <button className={style.btnCancel}>Cancelar</button>
+                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                 </form>
+                <div className={style.wrapBtnCreate}>
+                    <button className={style.btnSubmit} type="submit">Criar Usuário</button>
+                    <button className={style.btnCancel} onClick={handleCancel}>Cancelar</button>
+                </div>
 
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {success && <p style={{ color: 'green' }}>{success}</p>}
