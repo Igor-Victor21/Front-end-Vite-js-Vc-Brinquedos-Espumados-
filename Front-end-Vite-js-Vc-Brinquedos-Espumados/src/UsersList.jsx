@@ -1,8 +1,42 @@
 import style from './UsersList.module.css'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { api } from '../api/api'
+import { Menu } from './components/menu'
 
 function UsersList() {
+    const navigate = useNavigate()
+
+    const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user')
+        if (!storedUser) navigate('/')
+    }, [navigate])
+
+    const fetchUsers = async () => {
+        try {
+            const response = await api.get('/users')
+            setUsers(response.data)
+        } catch (err) {
+            setError('Erro ao carregar usuários')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchUsers()
+    }, [])
+
+    if (loading) return <p>Carregando usuários...</p>
+    if (error) return <p>{error}</p>
+
     return (
         <>
+            <Menu />
             <section id={style.containerInfoListUsers}>
                 <div className={style.headerTitle}>
                     <h1>Clientes</h1>
@@ -29,38 +63,40 @@ function UsersList() {
                     </div>
                 </div>
             </section>
-            <section id={style.containerSearchBar}>
-                <div className={style.textSearchBar}>
-                    <h1></h1>
-                </div>
-                <div className={style.searchBar}>
-                    <div className={style.searchBarNavigate}>
-                        <p className={style.textSearchBarNavigate}>Ver Todos</p>
+            <section id={style.containerList}>
+                <div className={style.wrapList}>
+                    <div className={style.headerList}>
+                        <div className={style.textHeaderList}>
+                            <p className={style.textList}>Nome Completo</p>
+                        </div>
+                        <div className={style.textHeaderList}>
+                            <p className={style.textList}>E-mail</p>
+                        </div>
+                        <div className={style.textHeaderList}>
+                            <p className={style.textList}>CPF</p>
+                        </div>
+                        <div className={style.textHeaderList}>
+                            <p className={style.textList}>CEP</p>
+                        </div>
                     </div>
-                    <div className={style.searchBarNavigate}>
-                        <p className={style.textSearchBarNavigate}>Geral</p>
+                    {users.map((user) => (
+                        <div key={user.id} className={style.containerListInfo}>
+                            <div>
+                                <p className={style.textInfoList}>{user.fullName}</p>
+                            </div>
+                            <div>
+                                <p className={style.textInfoList}>{user.email}</p>
+                            </div>
+                            <div>
+                                <p className={style.textInfoList}>{user.cpf}</p>
+                            </div>
+                            <div>
+                                <p className={style.textInfoList}>{user.cep}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
-                    </div>
-                    <div className={style.searchBarNavigate}>
-                        <p className={style.textSearchBarNavigate}>Scrum</p>
-
-                    </div>
-                    <div className={style.searchBarNavigate}>
-                        <p className={style.textSearchBarNavigate}>Creators/Designers</p>
-
-                    </div>
-                </div>
-                <div className={style.containerSearch}>
-                <div className={style.wrapInputSearchBar}>
-                    <input className={style.inputSearchBar} type="text" placeholder='Pesquisar:'/>
-                </div>
-                <div>
-                    <p>Filtrar</p>
-                </div>
-                </div>
-                <div>
-
-                </div>
             </section>
         </>
     )

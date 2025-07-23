@@ -86,6 +86,7 @@ body {
     background: #4168B1;
     background: linear-gradient(0deg, rgba(65, 104, 177, 1) 0%, rgba(125, 172, 255, 1) 100%);
     color: var(--branco);
+    width: 100px;
     padding: 10px;
     border-radius: 10px;
     border: none;

@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-#containerInfoListUsers {
+#containerInfoListProducts {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@ body {
 
 }
 
-.headerTitle{
+.headerTitle {
     position: relative;
     top: 30px;
     right: 30px;
@@ -27,57 +27,15 @@ body {
     background-color: var(--branco);
 }
 
-.headerTitle h1{
+.headerTitle h1 {
     font-size: 20px;
 }
 
-.headerTitle p{
+.headerTitle p {
     font-size: 12px;
 }
 
-.wrapInfoUserList {
-    width: 283px;
-    height: 107px;
-    margin: 30px;
-    border-radius: 10px;
-    background-color: #F3F3F3;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.containerInfoCard{
-    position: relative;
-    top: 10px;
-    left: 10px;
-    margin: 10px;
-}
-
-.textInfoUsers{
-    color: gray;
-    opacity: 0.8;
-}
-
-.infoClientsNumber{
-    font-size: 24px;
-}
-
-#containerSearchBar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 96vw;
-    height: auto;
-    background-color: #FFFFFF;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.textSearchBar{
-
-}
-
-#containerList{
+#containerList {
     display: flex;
     width: 400px;
     height: auto;
@@ -87,7 +45,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.wrapList{
+.wrapList {
     width: 400px;
     height: auto;
     border-top-left-radius: 10px;
@@ -95,7 +53,7 @@ body {
     background-color: #E9E9E9;
 }
 
-.headerList{
+.headerList {
     display: flex;
     width: 400px;
     height: auto;
@@ -104,7 +62,7 @@ body {
     background-color: #E9E9E9;
 }
 
-.textHeaderList{
+.textHeaderList {
     display: flex;
     flex-direction: row;
     background-color: #E9E9E9;
@@ -113,7 +71,7 @@ body {
     margin: 10px;
 }
 
-.textList{
+.textList {
     font-size: 12px;
     align-self: center;
     justify-content: center;
@@ -121,21 +79,19 @@ body {
     opacity: 0.8;
 }
 
-.containerListInfo{
+.containerListInfo {
     display: flex;
     flex-direction: row;
     background-color: #FFFFFF;
     border-bottom: 2px solid gray;
 }
 
-.textInfoList{
-        width: 80px;                
-        margin: 10px;
-        font-size: 14px;
-        background-color: #FFFFFF;
-        white-space: nowrap;
-        overflow: hidden;           
-        text-overflow: ellipsis;    
+.textInfoList {
+    width: 90px;
+    margin: 10px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
-

@@ -122,11 +122,11 @@ function CreateUsers() {
                     <input className={style.inputUser} type="text" placeholder='Em Produção:' />
                     <p className={style.inputTitle}>Experiência: </p>
                     <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                    <div className={style.wrapBtnCreate}>
+                        <button className={style.btnSubmit} type="submit">Criar Usuário</button>
+                        <button className={style.btnCancel} onClick={handleCancel}>Cancelar</button>
+                    </div>
                 </form>
-                <div className={style.wrapBtnCreate}>
-                    <button className={style.btnSubmit} type="submit">Criar Usuário</button>
-                    <button className={style.btnCancel} onClick={handleCancel}>Cancelar</button>
-                </div>
 
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {success && <p style={{ color: 'green' }}>{success}</p>}
