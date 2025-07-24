@@ -5,7 +5,8 @@ import { api } from '../api/api'
 import style from './App.module.css'
 
 import Vinha from './assets/image/vinha.png'
-import Image from './assets/image/user-test-sem-figma.png'
+import Image from './assets/image/Crianças-brincando.png'
+
 
 function App(){
   const navigate = useNavigate()
@@ -63,6 +64,7 @@ function App(){
     <>
       <section className={style.container}>
         <div className={style.wrapLogin}>
+        <div className={style.containerLogin}>
           <img className={style.upperVine} src={Vinha} alt='vinha superior'/>
           <form className={style.login} onSubmit={handleLogin}>
             <div>
@@ -92,6 +94,7 @@ function App(){
             <p className={style.ou}>Ou</p>
             <p className={style.pLink}>Não tem uma conta? <Link to="/Login" className={style.link}>Cadastrar-se</Link></p>
           </form>
+        </div>
         </div>
         <div className={style.wrapImage}>
           <img 

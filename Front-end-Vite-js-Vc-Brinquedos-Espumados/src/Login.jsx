@@ -64,73 +64,77 @@ function Login() {
     <>
       <section className={style.container}>
         <div className={style.wrapCadastro}>
-          <img className={style.upperVine} src={Vinha} alt='vinha superior'/>
-          <form className={style.cadastro} onSubmit={handleRegister}>
-            <div className={style.vineWrapper}>
-              <img className={style.leftVine} src={Vinha} alt='vinha esquerda'/>
-              <div className={style.formContent}>
-                <h1 className={style.h1}>Crie sua conta</h1>
-                <p className={style.p}>Preencha os campos para se registrar</p>
-                
-                <div className={style.inputGroup}>
-                  <p className={style.pInput}>Nome</p>
-                  <input 
-                    className={style.input} 
-                    type="text" 
-                    placeholder='Digite seu nome'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
+          <div className={style.wrapRegister}>
+            <img className={style.upperVine} src={Vinha} alt='vinha superior' />
+            <form className={style.cadastro} onSubmit={handleRegister}>
+              <div className={style.vineWrapper}>
+                <img className={style.leftVine} src={Vinha} alt='vinha esquerda' />
+                <div className={style.formContent}>
+                  <h1 className={style.h1}>Crie sua conta</h1>
+                  <p className={style.p}>Preencha os campos para se registrar</p>
+
+                  <div className={style.inputGroup}>
+                    <p className={style.pInput}>Nome</p>
+                    <input
+                      className={style.input}
+                      type="text"
+                      placeholder='Digite seu nome'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className={style.inputGroup}>
+                    <p className={style.pInput}>E-mail</p>
+                    <input
+                      className={style.input}
+                      type="email"
+                      placeholder='Digite seu email'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className={style.inputGroup}>
+                    <p className={style.pInput}>Senha</p>
+                    <input
+                      className={style.input}
+                      type="password"
+                      placeholder='Digite sua senha'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className={style.inputGroup}>
+                    <p className={style.pInput}>Confirmar Senha</p>
+                    <input
+                      className={style.input}
+                      type="password"
+                      placeholder='Confirme sua senha'
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className={style.wrapButton}>
+                  <button className={style.button} type='submit'>Registrar-se</button>
+
+                  </div>
+                  {message && <p className={style.message}>{message}</p>}
+                  <p className={style.ou}>Ou</p>
+                  <p className={style.pLink}>Já tem uma conta? <Link to="/" className={style.link}>Entre aqui</Link></p>
                 </div>
-                
-                <div className={style.inputGroup}>
-                  <p className={style.pInput}>E-mail</p>
-                  <input 
-                    className={style.input} 
-                    type="email" 
-                    placeholder='Digite seu email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                
-                <div className={style.inputGroup}>
-                  <p className={style.pInput}>Senha</p>
-                  <input 
-                    className={style.input} 
-                    type="password" 
-                    placeholder='Digite sua senha'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                
-                <div className={style.inputGroup}>
-                  <p className={style.pInput}>Confirmar Senha</p>
-                  <input 
-                    className={style.input} 
-                    type="password" 
-                    placeholder='Confirme sua senha'
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                
-                <button className={style.button} type='submit'>Registrar-se</button>
-                {message && <p className={style.message}>{message}</p>}
-                <p className={style.ou}>Ou</p>
-                <p className={style.pLink}>Já tem uma conta? <Link to="/" className={style.link}>Entre aqui</Link></p>
+                <img className={style.rightVine} src={Vinha} alt='vinha direita' />
               </div>
-              <img className={style.rightVine} src={Vinha} alt='vinha direita'/>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
         <div className={style.wrapImage}>
-          <img 
+          <img
             className={style.img}
             src={Image}
             alt='teste'
