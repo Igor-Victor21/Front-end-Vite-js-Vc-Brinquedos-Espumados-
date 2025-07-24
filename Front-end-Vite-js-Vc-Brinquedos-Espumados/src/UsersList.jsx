@@ -10,6 +10,14 @@ function UsersList() {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
+    const [selectedUser, setSelectedUser] = useState(null)
+    const [editing, setEditing] = useState(false)
+    const [editForm, setEditForm] = useState({
+        fullName: '',
+        email: '',
+        cpf: '',
+        cep: ''
+    })
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user')
@@ -30,6 +38,54 @@ function UsersList() {
     useEffect(() => {
         fetchUsers()
     }, [])
+
+    const handleUserClick = (user) => {
+        setSelectedUser(selectedUser?.id === user.id ? null : user)
+        setEditing(false)
+        setEditForm({
+            fullName: user.fullName,
+            email: user.email,
+            cpf: user.cpf,
+            cep: user.cep
+        })
+    }
+
+    const handleEdit = () => {
+        setEditing(true)
+    }
+
+    const handleSave = async () => {
+        try {
+            await api.put(`/users/${selectedUser.id}`, editForm)
+            fetchUsers()
+            setEditing(false)
+            setSelectedUser({...selectedUser, ...editForm})
+        } catch (err) {
+            setError('Erro ao atualizar usuário')
+        }
+    }
+
+    const handleDelete = async () => {
+        try {
+            await api.delete(`/users/${selectedUser.id}`)
+            fetchUsers()
+            setSelectedUser(null)
+        } catch (err) {
+            setError('Erro ao deletar usuário')
+        }
+    }
+
+    const handleHide = () => {
+        setSelectedUser(null)
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target
+        setEditForm({
+            ...editForm,
+            [name]: value
+        })
+    }
 
     if (loading) return <p>Carregando usuários...</p>
     if (error) return <p>{error}</p>
@@ -80,23 +136,55 @@ function UsersList() {
                         </div>
                     </div>
                     {users.map((user) => (
-                        <div key={user.id} className={style.containerListInfo}>
-                            <div>
-                                <p className={style.textInfoList}>{user.fullName}</p>
+                        <div key={user.id}>
+                            <div 
+                                className={style.containerListInfo} 
+                                onClick={() => handleUserClick(user)}
+                            >
+                                <div>
+                                    <p className={style.textInfoList}>{user.fullName}</p>
+                                </div>
+                                <div>
+                                    <p className={style.textInfoList}>{user.email}</p>
+                                </div>
+                                <div>
+                                    <p className={style.textInfoList}>{user.cpf}</p>
+                                </div>
+                                <div>
+                                    <p className={style.textInfoList}>{user.cep}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className={style.textInfoList}>{user.email}</p>
-                            </div>
-                            <div>
-                                <p className={style.textInfoList}>{user.cpf}</p>
-                            </div>
-                            <div>
-                                <p className={style.textInfoList}>{user.cep}</p>
-                            </div>
+                            {selectedUser?.id === user.id && (
+                                <div className={style.userDetails}>
+                                    {editing ? (
+                                        <div className={style.editForm}>
+                                            <input type="text" name="fullName" value={editForm.fullName} onChange={handleInputChange}/>
+                                            <input type="text" name="email" value={editForm.email} onChange={handleInputChange}/>
+                                            <input type="text" name="cpf" value={editForm.cpf} onChange={handleInputChange}/>
+                                            <input type="text" name="cep" value={editForm.cep} onChange={handleInputChange}/>
+                                        </div>
+                                    ) : (
+                                        <div className={style.userInfo}>
+                                            <p>Nome completo: {selectedUser.fullName}</p>
+                                            <p>Email: {selectedUser.email}</p>
+                                            <p>CPF: {selectedUser.cpf}</p>
+                                            <p>CEP: {selectedUser.cep}</p>
+                                        </div>
+                                    )}
+                                    <div className={style.actions}>
+                                        {editing ? (
+                                            <button onClick={handleSave}>Salvar</button>
+                                        ) : (
+                                            <button onClick={handleEdit}>Editar</button>
+                                        )}
+                                        <button onClick={handleDelete}>Deletar</button>
+                                        <button onClick={handleHide}>Ocultar informações</button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
-
             </section>
         </>
     )

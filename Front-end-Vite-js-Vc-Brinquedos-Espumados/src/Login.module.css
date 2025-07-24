@@ -1,3 +1,4 @@
+
 .container{
   display: flex;
   height: 100vh;
@@ -32,8 +33,9 @@
 
 .rightVine{
   position: absolute;
-  right: 1rem;
+  right: 0.5rem;
   height: 50%;
+  bottom: 19rem;
   max-width: 70%;
 }
 

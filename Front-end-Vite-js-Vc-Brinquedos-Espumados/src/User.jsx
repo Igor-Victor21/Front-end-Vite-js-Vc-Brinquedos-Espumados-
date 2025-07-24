@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import style from './UserAdmin.module.css';
+import { Menu } from './components/menu';
 
 function User() {
     const navigate = useNavigate();
@@ -94,17 +95,12 @@ function User() {
 
     return (
         <section id={style.s1}>
+            <Menu/>
             <div style={{ padding: '2rem' }}>
                 <h1>Detalhes do Usuário</h1>
                 
                 {!editMode ? (
-                    <>
-                        <div style={{ marginBottom: '1rem' }}>
-                            <button onClick={() => setEditMode(true)}>
-                                Editar
-                            </button>
-                        </div>
-                        
+                    <>  
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             <p><strong>Nome Completo:</strong> {user.fullName}</p>
                             <p><strong>E-mail:</strong> {user.email}</p>
@@ -121,6 +117,7 @@ function User() {
                             <p><strong>Complemento:</strong> {user.complement}</p>
                             <p><strong>Telefone:</strong> {user.numberPhone}</p>
                             <p><strong>Data de Nascimento:</strong> {user.dateOfBirth}</p>
+                            <button onClick={() => setEditMode(true)}>Editar</button>
                         </div>
                     </>
                 ) : (
@@ -145,6 +142,8 @@ function User() {
                         <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
                             <button type="submit">Salvar</button>
                             <button type="button" onClick={() => setEditMode(false)}>Cancelar</button>
+                            <div style={{ marginBottom: '1rem' }}>
+                        </div>
                         </div>
                     </form>
                 )}

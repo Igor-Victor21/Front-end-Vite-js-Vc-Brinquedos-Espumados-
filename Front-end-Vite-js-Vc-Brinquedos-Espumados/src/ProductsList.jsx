@@ -10,60 +10,92 @@ function ProductsList() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
-    const [editProductId, setEditProductId] = useState(null)
-    const [editedProduct, setEditedProduct] = useState({})
+    const [selectedProduct, setSelectedProduct] = useState(null)
+    const [editing, setEditing] = useState(false)
+    const [editForm, setEditForm] = useState({
+        image: '',
+        name: '',
+        measures: '',
+        price: 0
+    })
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user')
         if (!storedUser) navigate('/')
     }, [navigate])
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const response = await api.get('/products')
-                setProducts(response.data)
-            } catch (err) {
-                setError('Erro ao carregar produtos')
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchProducts()
-    }, [])
-
-    const handleDelete = async (id) => {
+    const fetchProducts = async () => {
         try {
-            await api.delete(`/products/${id}`)
-            setProducts(products.filter((p) => p.id !== id))
+            const response = await api.get('/products')
+            setProducts(response.data)
         } catch (err) {
-            alert('Erro ao deletar produto')
+            setError('Erro ao carregar produtos')
+        } finally {
+            setLoading(false)
         }
     }
 
-    const handleEditClick = (product) => {
-        setEditProductId(product.id)
-        setEditedProduct({ ...product })
+    useEffect(() => {
+        fetchProducts()
+    }, [])
+
+    const handleProductClick = (product) => {
+        setSelectedProduct(selectedProduct?.id === product.id ? null : product)
+        setEditing(false)
+        setEditForm({
+            image: product.image,
+            name: product.name,
+            // Garante que é string
+            measures: product.measures.toString(),
+            // Garante que é float 
+            price: parseFloat(product.price) 
+        })
+    }
+
+    const handleEdit = () => {
+        setEditing(true)
     }
 
     const handleSave = async () => {
         try {
-            const response = await api.put(`/products/${editProductId}`, editedProduct)
-            setProducts(
-                products.map((p) => (p.id === editProductId ? response.data : p))
-            )
-            setEditProductId(null)
+            const productToUpdate = {
+                ...editForm,
+                // Converte para float
+                price: parseFloat(editForm.price), 
+                // Garante que é string
+                measures: editForm.measures.toString() 
+            }
+            
+            await api.put(`/products/${selectedProduct.id}`, productToUpdate)
+            fetchProducts()
+            setEditing(false)
+            setSelectedProduct({...selectedProduct, ...productToUpdate})
         } catch (err) {
-            alert('Erro ao atualizar produto')
+            setError('Erro ao atualizar produto')
         }
     }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setEditedProduct({ ...editedProduct, [name]: name === "price" || name === "measures" ? Number(value) : value })
+    const handleDelete = async () => {
+        try {
+            await api.delete(`/products/${selectedProduct.id}`)
+            fetchProducts()
+            setSelectedProduct(null)
+        } catch (err) {
+            setError('Erro ao deletar produto')
+        }
     }
 
+    const handleHide = () => {
+        setSelectedProduct(null)
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target
+        setEditForm({
+            ...editForm,
+            [name]: name === "price" ? parseFloat(value) || 0 : value
+        })
+    }
 
     if (loading) return <p>Carregando produtos...</p>
     if (error) return <p>{error}</p>
@@ -93,26 +125,62 @@ function ProductsList() {
                                     <p className={style.textList}>Preço</p>
                                 </div>
                             </div>
-                            {products.map((list) => (
-                                <div key={list.id} className={style.containerListInfo}>
-                                    <div>
-                                        <img style={{ width: '80px', height: '80px' }} src={list.image} alt="foto-produto" />
+                            {products.map((product) => (
+                                <div key={product.id}>
+                                    <div 
+                                        className={style.containerListInfo} 
+                                        onClick={() => handleProductClick(product)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <div>
+                                            <img style={{ width: '80px', height: '80px' }} src={product.image} alt="foto-produto"/>
+                                        </div>
+                                        <div>
+                                            <p className={style.textInfoList}>{product.name}</p>
+                                        </div>
+                                        <div>
+                                            <p className={style.textInfoList}>{product.measures}</p>
+                                        </div>
+                                        <div>
+                                            <p className={style.textInfoList}>R$ {product.price}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className={style.textInfoList}>{list.name}</p>
-                                    </div>
-                                    <div>
-                                        <p className={style.textInfoList}>{list.measures}</p>
-                                    </div>
-                                    <div>
-                                        <p className={style.textInfoList}>R$ {list.price}</p>
-                                    </div>
-                                    <button onClick={() => handleEditClick(product)} style={{ marginLeft: '1rem' }}>Editar</button>
-                                    <button onClick={() => handleDelete(product.id)} style={{ marginLeft: '0.5rem' }}>Deletar</button>
+
+                                    {selectedProduct?.id === product.id && (
+                                        <div className={style.productDetails}>
+                                            {editing ? (
+                                                <div className={style.editForm}>
+                                                    <input type='text' name='image' value={editForm.image} onChange={handleInputChange} placeholder='URL da Imagem'></input>
+                                                    <input type='text' name='name' value={editForm.name} onChange={handleInputChange} placeholder='Nome do Produto'></input>
+                                                    <input type='text' name='measures' value={editForm.measures} onChange={handleInputChange} placeholder='Medidas'></input>
+                                                    <input type='number' name='price' value={editForm.price} onChange={handleInputChange} placeholder='Preço' step='0.01'></input>
+                                                </div>
+                                            ) : (
+                                                <div className={style.productInfo}>
+                                                    <img 
+                                                        style={{ width: '150px', height: '150px' }} 
+                                                        src={selectedProduct.image} 
+                                                        alt="foto-produto-expandida" 
+                                                    />
+                                                    <p>Nome: {selectedProduct.name}</p>
+                                                    <p>Medidas: {selectedProduct.measures}</p>
+                                                    <p>Preço: R$ {selectedProduct.price}</p>
+                                                </div>
+                                            )}
+                                            <div className={style.actions}>
+                                                {editing ? (
+                                                    <button onClick={handleSave}>Salvar</button>
+                                                ) : (
+                                                    <button onClick={handleEdit}>Editar</button>
+                                                )}
+                                                <button onClick={handleDelete}>Deletar</button>
+                                                <button onClick={handleHide}>Ocultar informações</button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
-
                     </section>
                 </div>
             </section>
