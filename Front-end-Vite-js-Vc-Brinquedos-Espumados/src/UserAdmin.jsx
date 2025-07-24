@@ -8,6 +8,7 @@ import SetaVoltar from './assets/image/seta.png'
 
 function UserAdmin() {
     const navigate = useNavigate();
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [products, setProducts] = useState([]);
@@ -37,6 +38,11 @@ function UserAdmin() {
         fetchProducts();
     }, [navigate]);
 
+    const isAdmin = () => {
+        if (!user || !user.email) return false;
+        return user.email.toLowerCase() === "igor.victorcontato@gmail.com";
+    };
+    
     const handleProductsDelete = async (id) => {
         try {
             await api.delete(`/products/${id}`);

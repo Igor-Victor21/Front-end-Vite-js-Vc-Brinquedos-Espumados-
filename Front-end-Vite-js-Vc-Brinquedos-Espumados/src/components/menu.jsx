@@ -41,7 +41,7 @@ export const Menu = () => {
     }
 
     const goToHome = () => {
-        if (isAdmin()) {
+        if (isAdmin() === true) {
             navigate(`/UserAdmin`);
         } else {
             navigate(`/CreateProducts`);
@@ -49,7 +49,7 @@ export const Menu = () => {
     }
 
     const goToCreateUsers = () => {
-        if (isAdmin()) {
+        if (isAdmin() === true) {
             navigate(`/CreateUsers`);
         } else {
             navigate(`/User`);

@@ -1,0 +1,56 @@
+body {
+    background-color: #F1F5F9;
+    font-family: 'Poppins', sans-serif;
+}
+
+#s1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 400px;
+    padding: 20px;
+    margin: 15px;
+    background-color: var(--branco);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-size: 14px;
+}
+
+.containerUser{
+
+}
+
+.wrapUser p{
+    margin-bottom: 5px;
+}
+
+.btnEdit{
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: #D29E02;
+    background: linear-gradient(0deg, rgba(210, 158, 2, 1) 0%, rgba(255, 193, 7, 1) 100%);
+    border: none;
+}
+
+.button{
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: rgb(179, 179, 179);
+    border: none;
+}
+
+form input{
+    border: 2px solid #636262;
+    padding: 7px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
