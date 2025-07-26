@@ -3,14 +3,9 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.fixedTop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #FFFFFF;
-    border-radius: 20px;
+body {
+    background-color: #F1F5F9;
+    font-family: 'Poppins', sans-serif;
 }
 
 .wrapHeader {
@@ -18,36 +13,53 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
     background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     margin: 15px;
     padding: 15px;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 65px;
 }
 
+.wrapBoxProduct {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
 
 .backBtn {
-    margin-top: 10px;
-    padding: 2px;
-    width: 31px;
-    height: 31px;
+    position: absolute;
+    left: 20px;
+    width: 35px;
+    height: 35px;
     border: solid 2px gray;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.textHeader {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    order: 2;
 }
 
 .buttonPublicar {
-    width: 180px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    max-width: 180px;
     padding: 10px;
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    background: #D29E02;
+    color: white;
     background: linear-gradient(0deg, rgba(210, 158, 2, 1) 0%, rgba(255, 193, 7, 1) 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Poppins', sans-serif;
+    order: 3;
 }
 
 .button {
@@ -59,11 +71,19 @@ body {
     cursor: pointer;
 }
 
+.containerImg ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding: 0;
+    margin: 0;
+}
+
 .containerImg {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     margin: 15px;
     text-align: center;
     background-color: #FFFFFF;
@@ -74,11 +94,13 @@ body {
 
 .wrapProducts {
     width: 200px;
-    height: 280px;
+    /* height: 340px; */
+    height: auto;
+    max-height: 100%;
     background-color: #FFFFFF;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: 35px;
+    margin: 15px auto;   
 }
 
 .buttonProducts {
@@ -89,6 +111,7 @@ body {
     border-radius: 15px;
     margin: 5px;
     cursor: pointer;
+    
 }
 
 .productImg {
@@ -101,7 +124,7 @@ body {
 .btnAdd {
     align-items: center;
     width: 200px;
-    height: 200px;
+    height: 340px;
     border: 2px dashed #3F82FF;
     border-radius: 20px;
     font-size: 46px;
@@ -127,7 +150,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.wrapEditProducts{
+.wrapEditProducts {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Poppins', sans-serif;
     border: 2px solid #636262;
@@ -142,4 +165,73 @@ body {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+@media (min-width: 700px) {
+    .wrapHeader {
+        margin: 15px 15px 15px 150px;
+        width: calc(100% - 165px);
+        padding: 20px 30px;
+        padding-left: 30px;
+        height: 120px;
+    }
+
+    .wrapBoxProduct {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .backBtn {
+        left: 20px;
+        width: 41px;
+        height: 41px;
+    }
+
+    .textHeader {
+        order: 2;
+        font-size: 20px;
+        text-align: left;
+        flex-grow: 1;
+        margin: 0 20px;
+        width: auto;
+        padding-left: 40px;
+    }
+
+    .buttonPublicar {
+        order: 3;
+        width: 180px;
+    }
+
+    .containerImg ul {
+        flex-direction: row;     
+        flex-wrap: wrap;         
+        justify-content: flex-start; 
+        align-items: center;
+    }
+
+    .btnAdd {
+        margin: 15px;
+        flex-shrink: 0;
+    }
+
+    .wrapProducts {
+        margin: 15px;           
+    }
+
+    .containerImg{
+        margin-left: 150px;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+}
+
+@media (min-width: 1000px) {
+    .wrapHeader {
+        max-width: 1740px;
+        margin-left: 150px;
+        margin-right: auto;
+    }
 }

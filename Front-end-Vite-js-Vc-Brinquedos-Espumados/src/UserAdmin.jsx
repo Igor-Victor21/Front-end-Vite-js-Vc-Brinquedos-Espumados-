@@ -42,7 +42,7 @@ function UserAdmin() {
         if (!user || !user.email) return false;
         return user.email.toLowerCase() === "igor.victorcontato@gmail.com";
     };
-    
+
     const handleProductsDelete = async (id) => {
         try {
             await api.delete(`/products/${id}`);
@@ -90,12 +90,12 @@ function UserAdmin() {
                     <div className={style.wrapHeader}>
                         <div className={style.wrapBoxProduct}>
                             <img className={style.backBtn} src={SetaVoltar} alt="Voltar" onClick={() => navigate(-1)} />
-                        </div>
-                        <div>
-                            <h1 style={{ fontSize: '20px' }}>Adicione Um Novo Produto</h1>
-                        </div>
-                        <div className={style.wrapButton}>
-                            <button className={style.buttonPublicar} onClick={() => navigate('/CreateProducts')}>Publicar</button>
+                            <div>
+                                <h1 className={style.textHeader}>Adicione Um Novo Produto</h1>
+                            </div>
+                            <div className={style.wrapButton}>
+                                <button className={style.buttonPublicar} onClick={() => navigate('/CreateProducts')}>Publicar</button>
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -125,14 +125,16 @@ function UserAdmin() {
                                         <br />
                                         <strong>{product.name}</strong>
                                         <br />
-                                        <button className={style.buttonProducts}onClick={() => handleProductsEditClick(product)}>Editar</button>
+                                        <button className={style.buttonProducts} onClick={() => handleProductsEditClick(product)}>Editar</button>
                                         <button className={style.buttonProducts} onClick={() => handleProductsDelete(product.id)}>Deletar</button>
                                     </div>
                                 )}
                             </li>
                         ))}
+                        <li>
+                            <button className={style.btnAdd} onClick={() => navigate('/CreateProducts')}>+</button>
+                        </li>
                     </ul>
-                    <button className={style.btnAdd} onClick={() => navigate('/CreateProducts')}>+</button>
                 </div>
             </section>
         </>

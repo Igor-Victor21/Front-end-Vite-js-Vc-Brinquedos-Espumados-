@@ -74,7 +74,7 @@ export const Menu = () => {
                 <img style={{ width: '26px', height: '24px', margin: '10px' }} src={CreateUsersIcon} alt="Create" onClick={goToCreateUsers} />
             )}
             
-            <img style={{ width: '37px', height: '34px', margin: '10px' }} src={CreateProductsIcon} alt="ProductsList" onClick={goToProductsList} />
+            <img className={style.iconProductsList} src={CreateProductsIcon} alt="ProductsList" onClick={goToProductsList} />
 
             <div className={style.wrapIcons}>
                 <img style={{ width: '29px', height: '29px', margin: '5px', marginTop: '35px' }} src={Logout} alt="Person" onClick={logout}/>

@@ -19,30 +19,49 @@
     display: flex;
 }
 
-@media (widht > 1000px) {
+@media (min-width: 700px) {
     .navBar {
-        position: absolute;
+        position: fixed;
         display: flex;
-        align-items: center;
         flex-direction: column;
-        width: 149.23px;
-        height: 960px;
-        top: 34px;
-        left: 29px;
+        width: 100px;
+        height: 900px;
+        top: -35px;
+        left: -20px;
         margin: 50px;
     }
 
-    .icon {
-        margin: 15px;
+    .iconProductsList {
+        position: absolute;
         width: 37px;
         height: 34px;
+        top: 285px;
+        left: 29px;
     }
 
     .wrapIcons {
-        margin-Top: 280px;
-        display: 'flex';
-        align-items: 'center';
-        flex-direction: 'column'
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-Top: 400px;
+    }
 
+}
+
+@media (width < 701px) {
+    .navBar {
+        position: relative;
+    }
+
+    .wrapIcons {
+    }
+
+    .iconProductsList {
+        position: relative;
+        width: 37px;
+        height: 34px;
+        /* top: 35px;
+        left: 332px; */
     }
 }

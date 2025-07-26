@@ -10,9 +10,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('./assets/image/cadastro.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.imgLogin {
+  position: absolute;
+  width: 445px;
+  height: 981px;
 }
 
 .wrapRegister {
@@ -22,29 +25,35 @@
   flex-direction: column;
   width: 100%;
   height: auto;
+  position: relative;
 }
+
+
 
 .upperVine {
   position: absolute;
-  height: 35%;
+  height: 324px;
   width: auto;
   transform: rotate(90deg);
-  top: -0.5rem;
+  top: -100px;
 }
 
 .leftVine {
   position: absolute;
-  left: 0.5rem;
-  height: 50%;
+  left: 1rem;
+  height: 394px;
   max-width: 70%;
+
 }
 
 .rightVine {
   position: absolute;
-  right: 0.5rem;
-  height: 50%;
-  bottom: 19rem;
+  right: 20px;
+  height: 394px;
   max-width: 70%;
+  top: 80px;
+  transform: rotate(180deg);
+
 }
 
 .cadastro {
@@ -125,14 +134,85 @@
   object-fit: cover;
 }
 
-@media (min-width: 700px) {
-  .wrapLogin {
-    background-size: 100% 100%;
+@media (min-width: 1000px) {
+  .cadastro {
+    max-width: 404px;
+  }
+
+  .wrapRegister {
+    max-width: 404px;
+  }
+
+  .upperVine {
+    position: absolute;
+    height: 450px;
+    top: -170px;
+  }
+
+  .leftVine {
+    position: absolute;
+    left: -90px;
+    max-width: 404px;
+    height: 404px;
+  }
+
+  .rightVine {
+    position: absolute;
+    top: 80px;
+    right: -90px;
+    max-width: 404px;
+    height: 414px;
+
+  }
+
+  .wrapImage {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    transform: scale(1.05);
+  }
+
+  .wrapCadastro {
+    height: 100vh;
+  }
+
+  .imgLogin {
+    position: absolute;
+    width: 868px;
+    height: 944.25px;
   }
 }
 
-@media (width >=1000px) {
-  .wrapLogin{
-    
+@media (min-width: 431px) and (max-width: 1000px) {
+  .wrapImage {
+    display: none;
+  }
+
+  .imgLogin {
+    position: absolute;
+    width: 1200px;
+    height: 945px;
+  }
+
+  .upperVine {
+    position: absolute;
+    height: 380px;
+    top: -160px;
+  }
+
+  .leftVine {
+    position: absolute;
+    left: 30px;
+    max-width: 404px;
+    height: 404px;
+  }
+
+  .rightVine {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    max-width: 404px;
+    height: 414px;
+
   }
 }

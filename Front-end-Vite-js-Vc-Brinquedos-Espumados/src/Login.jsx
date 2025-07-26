@@ -5,7 +5,8 @@ import { api } from '../api/api'
 import style from './Login.module.css'
 
 import Vinha from './assets/image/vinha.png'
-import Image from './assets/image/user-test-sem-figma.png'
+import Image from './assets/image/Crianças-brincando.png'
+import LoginImg from './assets/image/login.png'
 
 function Login() {
   const navigate = useNavigate()
@@ -64,6 +65,7 @@ function Login() {
     <>
       <section className={style.container}>
         <div className={style.wrapCadastro}>
+          <img className={style.imgLogin} src={LoginImg} alt="img-login" />
           <div className={style.wrapRegister}>
             <img className={style.upperVine} src={Vinha} alt='vinha superior' />
             <form className={style.cadastro} onSubmit={handleRegister}>
@@ -121,7 +123,7 @@ function Login() {
                     />
                   </div>
                   <div className={style.wrapButton}>
-                  <button className={style.button} type='submit'>Registrar-se</button>
+                    <button className={style.button} type='submit'>Registrar-se</button>
 
                   </div>
                   {message && <p className={style.message}>{message}</p>}

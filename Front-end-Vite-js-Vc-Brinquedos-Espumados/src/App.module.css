@@ -10,11 +10,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('./assets/image/login.png');
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
+}
 
+.imgLogin {
+  position: absolute;
+  width: 445px;
+  height: 981px;
 }
 
 .containerLogin {
@@ -154,10 +156,22 @@
   .wrapLogin {
     height: 100vh;
   }
+
+  .imgLogin {
+    position: absolute;
+    width: 868px;
+    height: 944.25px;
+  }
 }
 
-@media (width < 1116px) {
+@media (min-width: 431px) and (max-width: 1116px){
   .wrapImage {
     display: none;
   }
+  .imgLogin {
+    position: absolute;
+    width: 1200px;
+    height: 945px;
+  }
 }
+
