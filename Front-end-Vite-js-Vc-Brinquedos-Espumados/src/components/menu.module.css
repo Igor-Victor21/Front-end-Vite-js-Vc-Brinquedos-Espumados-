@@ -24,7 +24,7 @@
         position: fixed;
         display: flex;
         flex-direction: column;
-        width: 100px;
+        width: 150px;
         height: 900px;
         top: -35px;
         left: -20px;
@@ -36,7 +36,7 @@
         width: 37px;
         height: 34px;
         top: 285px;
-        left: 29px;
+        left: 52px;
     }
 
     .wrapIcons {
@@ -61,7 +61,5 @@
         position: relative;
         width: 37px;
         height: 34px;
-        /* top: 35px;
-        left: 332px; */
     }
 }
