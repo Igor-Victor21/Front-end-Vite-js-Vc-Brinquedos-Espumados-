@@ -25,7 +25,6 @@ function CreateUsers() {
         complement: '',
         numberPhone: '',
         dateOfBirth: ''
-
     })
 
     const [error, setError] = useState('')
@@ -60,78 +59,107 @@ function CreateUsers() {
     }
 
     return (
-        <section>
-            <Menu />
+        <>
+        <Menu />
+            <section className={style.containerCreate}>
+                <div className={style.s1}>
+                    <div className={style.wrapPhotoUser}>
+                        <img className={style.photoUser} src={User} alt="User" />
+                    </div>
 
-            <section>
-                <div className={style.wrapPhotoUser}>
-                    <img className={style.photoUser} src={User} alt="User" />
+                    <div className={style.wrapInputs}>
+                        <p className={style.inputTitle}>Categoria:</p>
+                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        <p className={style.inputTitle}>Atribuir Função:</p>
+                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        <p className={style.inputTitle}>Status:</p>
+                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                    </div>
                 </div>
+                <div className={style.wrapForm}>
+                    <form onSubmit={handleSubmit} className={style.formSubmit}>
+                        <p className={style.title}>Informações Pessoais</p>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Nome Completo:</p>
+                            <input className={style.inputUser} type="text" name='fullName' value={user.fullName} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Data de Nascimento:</p>
+                            <input className={style.inputUser} type="text" name='dateOfBirth' value={user.dateOfBirth} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>CPF:</p>
+                            <input className={style.inputUser} type="text" name='cpf' value={user.cpf} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>CEP:</p>
+                            <input className={style.inputUser} type="text" name='cep' value={user.cep} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Cidade:</p>
+                            <input className={style.inputUser} type="text" name='city' value={user.city} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>UF:</p>
+                            <input className={style.inputUser} type="text" name='uf' value={user.uf} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Bairro:</p>
+                            <input className={style.inputUser} type="text" name='neighborhood' value={user.neighborhood} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Rua:</p>
+                            <input className={style.inputUser} type="text" name='road' value={user.road} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Número da Residência:</p>
+                            <input className={style.inputUser} type="number" name='numberHouse' value={user.numberHouse} onChange={handleChange} min="0" required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Complemento:</p>
+                            <input className={style.inputUser} type="text" name='complement' value={user.complement} onChange={handleChange} required />
+                        </div>
+                        <p className={style.title}>Informações de Login</p>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>E-mail</p>
+                            <input className={style.inputUser} type="email" placeholder='Digite seu E-mail' name='email' value={user.email} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Senha:</p>
+                            <input className={style.inputUser} type="password" placeholder='Digite a sua Senha' name='password' value={user.password} onChange={handleChange} required />
+                        </div>
+                        <p className={style.title}>Contato</p>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Número de Telefone:</p>
+                            <input className={style.inputUser} type="text" name='numberPhone' value={user.numberPhone} onChange={handleChange} required />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>E-mail:</p>
+                                <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Rede Social:</p>
+                                <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Função:</p>
+                            <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        </div>
+                        <div className={style.groupInput}>
+                            <p className={style.inputTitle}>Experiência:</p>
+                            <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                        </div>
+                        <div className={style.wrapBtnCreate}>
+                            <button className={style.btnSubmit} type="submit">Criar Usuário</button>
+                            <button className={style.btnCancel} onClick={handleCancel}>Cancelar</button>
+                        </div>
+                    </form>
 
-                <div className={style.wrapInputs}>
-                    <p className={style.inputTitle}>Categoria:</p>
-                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                    <p className={style.inputTitle}>Atribuir Função:</p>
-                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                    <p className={style.inputTitle}>Status:</p>
-                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    {success && <p style={{ color: 'green' }}>{success}</p>}
                 </div>
             </section>
-            <div className={style.wrapForm}>
-                <form onSubmit={handleSubmit} className={style.formSubmit}>
-                    <p className={style.title}>Informações Pessoais</p>
-                    <p className={style.inputTitle}>Nome Completo:</p>
-                    <input className={style.inputUser} type="text" name='fullName' value={user.fullName} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Data de Nascimento:</p>
-                    <input className={style.inputUser} type="text" name='dateOfBirth' value={user.dateOfBirth} onChange={handleChange} required />
-                    <p className={style.inputTitle}>CPF: </p>
-                    <input className={style.inputUser} type="text" name='cpf' value={user.cpf} onChange={handleChange} required />
-                    <p className={style.inputTitle}>CEP: </p>
-                    <input className={style.inputUser} type="text" name='cep' value={user.cep} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Cidade: </p>
-                    <input className={style.inputUser} type="text" name='city' value={user.city} onChange={handleChange} required />
-                    <p className={style.inputTitle}>UF: </p>
-                    <input className={style.inputUser} type="text" name='uf' value={user.uf} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Bairro: </p>
-                    <input className={style.inputUser} type="text" name='neighborhood' value={user.neighborhood} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Rua: </p>
-                    <input className={style.inputUser} type="text" name='road' value={user.road} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Número da Residência:</p>
-                    <input className={style.inputUser} type="number" name='numberHouse' value={user.numberHouse} onChange={handleChange} min="0" required />
-                    <p className={style.inputTitle}>Complemento: </p>
-                    <input className={style.inputUser} type="text" name='complement' value={user.complement} onChange={handleChange} required />
-                    <p className={style.title}>Informações de Login</p>
-                    <p className={style.inputTitle}>E-mail</p>
-                    <input className={style.inputUser} type="email" placeholder='Digite seu E-mail' name='email' value={user.email} onChange={handleChange} required />
-                    <p className={style.inputTitle}>Senha: </p>
-                    <input className={style.inputUser} type="password" placeholder='Digite a sua Senha' name='password' value={user.password} onChange={handleChange} required />
-                    <p className={style.title}>Contato</p>
-                    <p className={style.inputTitle}>Número de Telefone: </p>
-                    <input className={style.inputUser} type="text" name='numberPhone' value={user.numberPhone} onChange={handleChange} required />
-                    <p className={style.inputTitle}>E-mail: </p>
-                    <div style={{ position: "relative" }}>
-                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                        <button className={style.btnAdd} onClick={handleEmProducao}>+</button>
-                    </div>
-                    <p className={style.inputTitle}>Rede Social: </p>
-                    <div style={{ position: "relative" }}>
-                        <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                        <button className={style.btnAdd} onClick={handleEmProducao}>+</button>
-                    </div>
-                    <p className={style.inputTitle}>Função: </p>
-                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                    <p className={style.inputTitle}>Experiência: </p>
-                    <input className={style.inputUser} type="text" placeholder='Em Produção:' />
-                    <div className={style.wrapBtnCreate}>
-                        <button className={style.btnSubmit} type="submit">Criar Usuário</button>
-                        <button className={style.btnCancel} onClick={handleCancel}>Cancelar</button>
-                    </div>
-                </form>
-
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>{success}</p>}
-            </div>
-        </section>
+        </>
     )
 }
 

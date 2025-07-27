@@ -41,20 +41,6 @@ function User() {
         setLoading(false);
     }, []);
 
-    // const handleDeleteAccount = async () => {
-    //     if (!user || !user.id) return;
-
-    //     try {
-    //         await api.delete(`/users/${user.id}`);
-    //         localStorage.removeItem('user');
-    //         setUser(null);
-    //         navigate('/Login');
-    //     } catch (err) {
-    //         setError('Erro ao deletar conta');
-    //         console.error(err);
-    //     }
-    // };
-
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
@@ -89,7 +75,7 @@ function User() {
 
     return (
         <>
-        <Menu/>
+            <Menu />
             <section id={style.s1}>
                 <div className={style.containerUser}>
                     <h1>Detalhes do Usuário</h1>
@@ -142,10 +128,6 @@ function User() {
                             </div>
                         </form>
                     )}
-
-                    {/* <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-                        <button className={style.button} onClick={handleDeleteAccount}>Deletar Conta</button>
-                    </div> */}
                 </div>
             </section>
         </>
