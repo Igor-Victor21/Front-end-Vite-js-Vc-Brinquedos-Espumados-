@@ -38,6 +38,7 @@ body {
     width: 31px;
     border: solid 2px gray;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .formProducts {

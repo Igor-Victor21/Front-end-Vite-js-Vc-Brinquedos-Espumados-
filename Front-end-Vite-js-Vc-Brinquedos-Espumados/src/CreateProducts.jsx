@@ -10,7 +10,6 @@ import SetaVoltar from './assets/image/seta.png'
 function CreateProducts() {
   const navigate = useNavigate()
 
-  const [showForm, setShowForm] = useState(false)
   const [menuVisible, setMenuVisible] = useState(true)
   const [product, setProduct] = useState({
     name: '',
@@ -79,7 +78,7 @@ function CreateProducts() {
         {success && <p style={{ color: 'green' }}>{success}</p>}
       </div>
       {/* <div>
-        {/* Menu é ocultado se menuVisible for falso */}
+        {/* menu é ocultado se menuVisible for falso */}
       <div className={`${menuVisible ? '' : style.hiddenMenu}`}>
       </div>
     </section >

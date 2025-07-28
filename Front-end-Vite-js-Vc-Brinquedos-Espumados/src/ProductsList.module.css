@@ -14,7 +14,6 @@ body {
     margin: 20px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
 }
 
 .headerTitle {
@@ -94,4 +93,43 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media(min-width: 1100px) {
+
+    #containerInfoListProducts {
+        max-width: 100%;
+        width: 1000px;
+        height: auto;
+        margin-left: 150px;
+    }
+
+    .headerTitle {
+        width: 683px;
+        height: auto;
+    }
+
+    #containerList {
+        width: 800px;
+        height: auto;
+    }
+
+    .wrapList {
+        width: 800px;
+        height: auto;
+    }
+
+    .headerList {
+        width: 800px;
+        height: auto;
+    }
+
+    .textHeaderList {
+        width: 180px;
+        height: auto;
+    }
+
+    .textInfoList {
+        width: 160px;
+    }
 }

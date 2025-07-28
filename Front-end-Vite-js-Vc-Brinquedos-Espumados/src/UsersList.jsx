@@ -173,12 +173,12 @@ function UsersList() {
                                     )}
                                     <div className={style.actions}>
                                         {editing ? (
-                                            <button onClick={handleSave}>Salvar</button>
+                                            <button className={style.btnUserConfg} onClick={handleSave}>Salvar</button>
                                         ) : (
-                                            <button onClick={handleEdit}>Editar</button>
+                                            <button className={style.btnUserConfg} onClick={handleEdit}>Editar</button>
                                         )}
-                                        <button onClick={handleDelete}>Deletar</button>
-                                        <button onClick={handleHide}>Ocultar informações</button>
+                                        <button className={style.btnUserConfg} onClick={handleHide}>Ocultar informações</button>
+                                        <button className={style.btnUserConfg} onClick={handleDelete}>Deletar</button>
                                     </div>
                                 </div>
                             )}

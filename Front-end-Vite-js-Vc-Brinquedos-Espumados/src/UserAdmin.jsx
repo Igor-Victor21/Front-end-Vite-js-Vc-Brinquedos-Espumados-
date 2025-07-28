@@ -18,7 +18,8 @@ function UserAdmin() {
         description: '',
         measures: '',
         price: '',
-        image: ''
+        image: '',
+        section:''
     });
 
     useEffect(() => {
@@ -114,6 +115,7 @@ function UserAdmin() {
                                         <input type="text" name="measures" value={editedProduct.measures} onChange={handleChange} placeholder="Medidas" />
                                         <input type="number" name="price" value={editedProduct.price} onChange={handleChange} placeholder="Preço" />
                                         <input type="text" name="image" value={editedProduct.image} onChange={handleChange} placeholder="URL da Imagem" />
+                                        <input type="text" name="section" value={editedProduct.section} onChange={handleChange} placeholder="Informe sua Página" />
                                         <div className={style.editButtons}>
                                             <button onClick={handleSave} className={style.wrapEditProducts}>Salvar</button>
                                             <button onClick={handleCancelEdit} className={style.wrapEditProducts}>Cancelar</button>

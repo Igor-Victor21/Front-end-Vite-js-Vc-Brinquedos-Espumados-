@@ -1,4 +1,4 @@
-import style from './Products.module.css'
+import style from './ProductsList.module.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../api/api'
@@ -45,9 +45,9 @@ function ProductsList() {
         setEditForm({
             image: product.image,
             name: product.name,
-            // Garante que é string
+            //garante que as medidas seja string
             measures: product.measures.toString(),
-            // Garante que é float 
+            //garante que o preço seja float
             price: parseFloat(product.price) 
         })
     }
@@ -60,9 +60,9 @@ function ProductsList() {
         try {
             const productToUpdate = {
                 ...editForm,
-                // Converte para float
+                //converte para float
                 price: parseFloat(editForm.price), 
-                // Garante que é string
+                //converte para string
                 measures: editForm.measures.toString() 
             }
             

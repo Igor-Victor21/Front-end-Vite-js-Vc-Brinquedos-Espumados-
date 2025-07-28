@@ -17,7 +17,7 @@ body {
 
 }
 
-.headerTitle{
+.headerTitle {
     position: relative;
     top: 30px;
     right: 30px;
@@ -27,11 +27,11 @@ body {
     background-color: var(--branco);
 }
 
-.headerTitle h1{
+.headerTitle h1 {
     font-size: 20px;
 }
 
-.headerTitle p{
+.headerTitle p {
     font-size: 12px;
 }
 
@@ -44,23 +44,23 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.containerInfoCard{
+.containerInfoCard {
     position: relative;
     top: 10px;
     left: 10px;
     margin: 10px;
 }
 
-.textInfoUsers{
+.textInfoUsers {
     color: gray;
     opacity: 0.8;
 }
 
-.infoClientsNumber{
+.infoClientsNumber {
     font-size: 24px;
 }
 
-#containerSearchBar{
+#containerSearchBar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,11 +73,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.textSearchBar{
-
-}
-
-#containerList{
+#containerList {
     display: flex;
     width: 400px;
     height: auto;
@@ -87,7 +83,7 @@ body {
     background-color: #FFFFFF;
 }
 
-.wrapList{
+.wrapList {
     width: 400px;
     height: auto;
     border-top-left-radius: 10px;
@@ -95,7 +91,7 @@ body {
     background-color: #E9E9E9;
 }
 
-.headerList{
+.headerList {
     display: flex;
     width: 400px;
     height: auto;
@@ -104,7 +100,7 @@ body {
     background-color: #E9E9E9;
 }
 
-.textHeaderList{
+.textHeaderList {
     display: flex;
     flex-direction: row;
     background-color: #E9E9E9;
@@ -113,7 +109,7 @@ body {
     margin: 10px;
 }
 
-.textList{
+.textList {
     font-size: 12px;
     align-self: center;
     justify-content: center;
@@ -121,21 +117,30 @@ body {
     opacity: 0.8;
 }
 
-.containerListInfo{
+.containerListInfo {
     display: flex;
     flex-direction: row;
     background-color: #FFFFFF;
     border-bottom: 2px solid gray;
 }
 
-.textInfoList{
-        width: 80px;                
-        margin: 10px;
-        font-size: 14px;
-        background-color: #FFFFFF;
-        white-space: nowrap;
-        overflow: hidden;           
-        text-overflow: ellipsis;    
+.textInfoList {
+    width: 80px;
+    margin: 10px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
-
+.userInfo{
+    padding: 10px;
+}
+.btnUserConfg{
+    padding: 10px;
+    margin: 21px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

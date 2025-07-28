@@ -54,9 +54,6 @@ function CreateUsers() {
         setUser(null);
     };
 
-    const handleEmProducao = () => {
-        alert("Em Produção")
-    }
 
     return (
         <>

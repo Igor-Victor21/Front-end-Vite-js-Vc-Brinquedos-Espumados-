@@ -32,10 +32,10 @@ function Login() {
         fullName: name,
         email,
         password,
-        // Campos obrigatórios com valores padrão
+        //campos obrigatórios com valores padrão
         cpf: "00000000000",
-        socialReason: "Pessoa Física",
-        stateRegistration: "ISENTO",
+        socialReason: "Razão Social",
+        stateRegistration: "Registro Estadual",
         cnpj: "00000000000000",
         cep: "00000000",
         uf: "UF",
@@ -45,7 +45,7 @@ function Login() {
         numberHouse: 0,
         complement: "Não informado",
         numberPhone: "00000000000",
-        dateOfBirth: "2000-01-01"
+        dateOfBirth: "00/00/0000"
       })
 
       if (response.status === 201) {

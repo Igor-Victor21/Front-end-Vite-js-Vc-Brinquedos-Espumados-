@@ -1,7 +1,7 @@
 .container {
   display: flex;
   height: 100vh;
-  width: 100vw; /* alterado de % para vw */
+  width: 100vw; 
   overflow: hidden;
 }
 
@@ -159,19 +159,27 @@
 
   .imgLogin {
     position: absolute;
-    width: 868px;
-    height: 944.25px;
+    width: 50%;
+    height: 100%;
   }
 }
 
-@media (min-width: 431px) and (max-width: 1116px){
+@media (min-width: 1000px) {
+  .imgLogin {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 1000px) {
   .wrapImage {
     display: none;
   }
+
   .imgLogin {
     position: absolute;
-    width: 1200px;
-    height: 945px;
+    width: 100%;
+    height: 100%;
   }
 }
-

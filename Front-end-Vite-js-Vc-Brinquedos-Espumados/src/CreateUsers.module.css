@@ -70,7 +70,7 @@ body {
     color: var(--branco);
     font-size: 20px;
     padding: 10px;
-    width: 100%;
+    width: 240px;
     max-width: 300px;
     text-align: center;
 }
@@ -79,7 +79,7 @@ body {
     border: 2px solid #636262;
     padding: 15px;
     border-radius: 25px;
-    width: 100%;
+    width: 240px;
     max-width: 300px;
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -101,20 +101,6 @@ body {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.btnAdd {
-    position: absolute;
-    border-radius: 10px;
-    border: none;
-    right: -40px;
-    top: 05px;
-    width: 30px;
-    height: 30px;
-    background: #4168B1;
-    background: linear-gradient(0deg, rgba(65, 104, 177, 1) 0%, rgba(125, 172, 255, 1) 100%);
-    color: var(--branco);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -145,7 +131,7 @@ body {
         padding: 40px;
         gap: 40px;
         margin-top: 25px;
-        margin-left: 250px;
+        margin-left: 290px;
         margin-bottom: 25px;
         border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

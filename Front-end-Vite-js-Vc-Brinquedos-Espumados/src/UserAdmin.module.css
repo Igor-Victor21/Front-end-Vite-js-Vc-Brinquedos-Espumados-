@@ -3,11 +3,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #F1F5F9;
-    font-family: 'Poppins', sans-serif;
-}
-
 .wrapHeader {
     z-index: 999;
     display: flex;
@@ -94,7 +89,6 @@ body {
 
 .wrapProducts {
     width: 200px;
-    /* height: 340px; */
     height: auto;
     max-height: 100%;
     background-color: #FFFFFF;

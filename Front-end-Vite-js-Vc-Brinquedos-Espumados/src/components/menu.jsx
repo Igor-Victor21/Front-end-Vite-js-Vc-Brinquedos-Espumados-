@@ -67,17 +67,17 @@ export const Menu = () => {
     return (
         <nav className={style.navBar}>
             <img style={{ width: '80px', height: '80px', cursor: 'pointer' }} onClick={() => navigate('/UserAdmin')} src={MenuLogo} alt="Logo" />
-            <img style={{ width: '27px', height: '27px', margin: '10px' }} src={Home} alt="Home" onClick={goToHome} />
-            <img style={{ width: '34px', height: '29px', margin: '10px' }} src={InfoIcon} alt="UserInfoList" onClick={goToInfoUsers} />
+            <img style={{ width: '27px', height: '27px', margin: '10px', cursor: 'pointer' }} src={Home} alt="Home" onClick={goToHome} />
+            <img style={{ width: '34px', height: '29px', margin: '10px', cursor: 'pointer' }} src={InfoIcon} alt="UserInfoList" onClick={goToInfoUsers} />
             
             {isAdmin() && (
-                <img style={{ width: '26px', height: '24px', margin: '10px' }} src={CreateUsersIcon} alt="Create" onClick={goToCreateUsers} />
+                <img style={{ width: '26px', height: '24px', margin: '10px', cursor: 'pointer' }} src={CreateUsersIcon} alt="Create" onClick={goToCreateUsers} />
             )}
             
             <img className={style.iconProductsList} src={CreateProductsIcon} alt="ProductsList" onClick={goToProductsList} />
 
             <div className={style.wrapIcons}>
-                <img style={{ width: '29px', height: '29px', margin: '5px', marginTop: '35px' }} src={Logout} alt="Person" onClick={logout}/>
+                <img style={{ width: '29px', height: '29px', margin: '5px', marginTop: '35px',cursor: 'pointer' }} src={Logout} alt="Person" onClick={logout}/>
                 <img style={{ margin: '30px', width: '38px', height: '39px', border: '2px solid black', borderRadius: '100%' }} src={User} alt="User" />
             </div>
         </nav>
